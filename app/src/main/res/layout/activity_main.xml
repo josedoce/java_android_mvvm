@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable name="visaoModelo" type="com.example.mvvm.viewmodels.MainViewModel" />
+    </data>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/tools"
+        android:gravity="center"
+        android:layout_marginHorizontal="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/inEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="8dp"
+            android:text="@={visaoModelo.userEmail}" />
+
+
+        <EditText
+            android:layout_below="@+id/inEmail"
+            android:id="@+id/inPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="8dp"
+            android:text="@={visaoModelo.userPassword}" />
+
+
+        <Button
+            android:layout_below="@+id/inPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:onClick="@{()-> visaoModelo.onLoginClicked()}"
+            android:text="LOGIN"
+            bind:toastMessage="@{visaoModelo.toastMessage}" />
+    </RelativeLayout>
+</layout>
